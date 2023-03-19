@@ -1,3 +1,4 @@
+#!/bin/bash
 # This file is used to push the code to the main repository
 # The script use 2 arguments
 # 1. The commit message (mandatory)
