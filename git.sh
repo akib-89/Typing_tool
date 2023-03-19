@@ -25,7 +25,8 @@ if [ $# -eq 2 ]
     # if the user has provided the branch name 
     # then we need to push the code to that branch
     # after creating the branch (if it does not exist)
-    echo git branch -a | grep -q "$2"
+    branch=git branch -a | grep -q "$2"
+    echo $branch
   else
     # if the user has not provided the branch name then we need to push the code to the master branch
     git push origin master
