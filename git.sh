@@ -26,8 +26,14 @@ if [ $# -eq 2 ]
     # if the user has provided the branch name 
     # then we need to push the code to that branch
     # after creating the branch (if it does not exist)
-    branch={git branch | grep -c -x "* $2"}
-    echo $branch
+    branch_count=$(git branch | grep -x -c "* $2")
+    if [ $branch_count -eq 0 ]
+      then
+        # if the branch does not exist then we need to create it
+        git checkout -b $2
+    fi
+    # now we need to push the code to the provided branch
+    git push origin $2
   else
     # if the user has not provided the branch name then we need to push the code to the master branch
     git push origin master
