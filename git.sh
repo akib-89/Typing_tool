@@ -43,4 +43,6 @@ if [ $# -eq 2 ]
 
     # echo the branch name
     echo "Pushing code to branch: $branch_name"
+    # now push the code to the current branch
+    git push origin $branch_name
 fi
