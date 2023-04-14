@@ -35,6 +35,12 @@ if [ $# -eq 2 ]
     # now we need to push the code to the provided branch
     git push origin $2
   else
-    # if the user has not provided the branch name then we need to push the code to the master branch
-    git push origin master
+    # if the user has not provided the branch name 
+    # then we need to push the code to the branch user is currently working on
+    
+    # find the current branch name
+    branch_name=$(git branch | grep -x -e "* .*" | cut -d " " -f 2)
+
+    # echo the branch name
+    echo "Pushing code to branch: $branch_name"
 fi
