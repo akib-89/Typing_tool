@@ -23,16 +23,23 @@ body {
   background-color: #222;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 30px;
-  padding: 0px 10px;
+  padding: 10px 10px;
+}
+
+.terminal-buttons {
+  display: flex;
+  align-items: center;
 }
 
 .terminal-button {
   width: 12px;
   height: 12px;
+  margin-right: 5px;
   border-radius: 50%;
-  margin-right: 10px;
 }
+
 
 .close {
   background-color: #ff5f56;
@@ -49,6 +56,10 @@ body {
 .terminal-title {
   font-weight: bold;
   margin-left: 10px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .terminal-body {
@@ -56,6 +67,8 @@ body {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  height: 70vh;
 }
 
 .terminal-output {
@@ -71,10 +84,43 @@ body {
   background-color: #222;
   display: flex;
   align-items: center;
-  height: 50px;
   padding: 0px 10px;
+}
+
+.credits {
+  font-size: 10px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.credits a {
+  color: #0f0;
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+  /* add underline on hover */
 }
 
 .terminal-result {
   margin-right: 20px;
+}
+
+.cursor {
+  border: 1px solid black;
+  background-color: lightgrey;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    background-color: lightgrey;
+  }
+
+  50% {
+    background-color: transparent;
+  }
 }

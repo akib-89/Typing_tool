@@ -1,28 +1,39 @@
+let text = document.querySelector('#text');
+
+let currentText = '';
+let initialText = 'Type this text as quickly and accurately as possible.';
+
+// When the DOM is loaded, set the initial text to type
 document.addEventListener('DOMContentLoaded', () => {
-    const text = document.querySelector('#text');
-    const input = document.querySelector('#input');
-    let currentText = '';
+    text.innerHTML = initialText.split('').map(char => `<span>${char}</span>`).join('');
+});
 
-    // Set the initial text to type
-    const initialText = 'Type this text as quickly and accurately as possible.';
-    text.textContent = initialText;
+// event listener for keypress 
+function keypressHandler(e) {
+    // get the character that was pressed
+    const char = e.key;
 
-    // Add a keypress event listener to the window
-    window.addEventListener('keypress', (event) => {
-        const keyPressed = event.key;
-        const expectedKey = initialText[currentText.length];
+    // add the character to the current text
+    currentText += char;
 
-        // Ignore non-alphanumeric keys
-        if (!(/[a-zA-Z0-9]/.test(keyPressed))) {
-            return;
+    // compare the current text with the initial text and color it accordingly
+    Array.from(text.children).forEach((charElement, index) => {
+        if (currentText[index] === undefined) {
+            charElement.style.color = 'white';
+        } else if (currentText[index] === initialText[index]) {
+            charElement.style.color = 'grey';
+        } else {
+            charElement.style.color = 'red';
         }
 
-        // If the key pressed matches the expected key, update the current text
-        if (keyPressed === expectedKey) {
-            currentText += keyPressed;
-            text.innerHTML = initialText.slice(0, currentText.length) +
-                '<span class="highlight">' + initialText.slice(currentText.length) + '</span>';
-            input.textContent = currentText;
+        // add the cursor class to the current character
+        if (index === currentText.length) {
+            charElement.classList.add('cursor');
+        } else {
+            charElement.classList.remove('cursor');
         }
     });
-});
+}
+
+// add event listener for keypress
+window.addEventListener('keypress', keypressHandler);
