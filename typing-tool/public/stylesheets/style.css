@@ -80,6 +80,10 @@ body {
   margin-top: 10px;
 }
 
+.terminal-result {
+  margin-right: 20px;
+}
+
 .terminal-footer {
   background-color: #222;
   display: flex;
@@ -101,10 +105,6 @@ body {
 .credits a:hover {
   text-decoration: underline;
   /* add underline on hover */
-}
-
-.terminal-result {
-  margin-right: 20px;
 }
 
 .cursor {
