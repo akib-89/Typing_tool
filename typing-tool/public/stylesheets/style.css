@@ -1,8 +1,126 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #2c3e50;
+  font-family: monospace;
+  color: #fff;
 }
 
-a {
-  color: #00B7FF;
+.terminal-window {
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  margin: 50px auto;
+  width: 80%;
+  max-width: 800px;
+  min-width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-header {
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 10px 10px;
+}
+
+.terminal-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+
+.close {
+  background-color: #ff5f56;
+}
+
+.minimize {
+  background-color: #ffbd2e;
+}
+
+.maximize {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  font-weight: bold;
+  margin-left: 10px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.terminal-body {
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 70vh;
+}
+
+.terminal-output {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.terminal-input {
+  margin-top: 10px;
+}
+
+.terminal-result {
+  margin-right: 20px;
+}
+
+.terminal-footer {
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.credits {
+  font-size: 10px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.credits a {
+  color: #0f0;
+  text-decoration: none;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+  /* add underline on hover */
+}
+
+.cursor {
+  border: 1px solid black;
+  background-color: lightgrey;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    background-color: lightgrey;
+  }
+
+  50% {
+    background-color: transparent;
+  }
 }
